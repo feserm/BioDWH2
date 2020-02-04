@@ -35,7 +35,7 @@ public class ReactomeParser extends Parser {
         for (Class entity : ReactomeModel.entitylist) {
             Session currentSession = Neo4jSessionFactory.getInstance().getNeo4jSession();
             currentEntity = currentSession.loadAll(entity);
-            currentEntity = currentSession.query();
+//            currentEntity = currentSession.query();
             currentSession.clear();
             /*for (CatalystActivity e : (ArrayList<CatalystActivity>) currentEntity) {
                 if (!e.literatureReference.isEmpty()) {
