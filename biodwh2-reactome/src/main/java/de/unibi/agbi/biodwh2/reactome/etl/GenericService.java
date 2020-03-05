@@ -7,7 +7,7 @@ import org.neo4j.ogm.session.Session;
  * Created by manuel on 13.01.20.
  */
 abstract class GenericService<T> implements Service<T> {
-    private static final int DEPTH_LIST = 0;
+    private static final int DEPTH_LIST = 1;
     private static final int DEPTH_ENTITY = 1;
     protected Session session = Neo4jSessionFactory.getInstance().getNeo4jSession();
 

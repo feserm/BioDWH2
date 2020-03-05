@@ -17,7 +17,7 @@ public class ReactomeWriter {
         return graph;
     }
 
-    public void extendGraph(final Collection collection) {
+    /*public void extendGraph(final Collection collection) {
         for (DatabaseObject o : (Collection<DatabaseObject>) collection) {
             Node reactomeNode = new Node(o.id, o.schemaClass);
             for (String f : o.getFieldNames()) {
@@ -51,5 +51,5 @@ public class ReactomeWriter {
                 }
             }
         }
-    }
+    }*/
 }

@@ -1,6 +1,5 @@
 package de.unibi.agbi.biodwh2.reactome.entities;
 
-import de.unibi.agbi.biodwh2.reactome.entities.Publication.Publication;
 import org.neo4j.ogm.annotation.Relationship;
 
 import java.util.HashSet;
@@ -16,11 +15,11 @@ public class Person extends DatabaseObject {
     public String project;
     public String surname;
 
-    @Relationship(type = "affiliation", direction = Relationship.INCOMING)
+    @Relationship(type = "affiliation")
     public Set<Affiliation> affiliation = new HashSet<>();
-    @Relationship(type = "crossReference", direction = Relationship.INCOMING)
+    @Relationship(type = "crossReference")
     public Set<DatabaseIdentifier> crossReference = new HashSet<>();
-    @Relationship(type = "publications", direction = Relationship.INCOMING)
+    @Relationship(type = "publications")
     public Set<Publication> publications = new HashSet<>();
 
 

@@ -21,9 +21,9 @@ public abstract class DatabaseObject {
     public String schemaClass;
     public String stId;
 
-    @Relationship(type = "created", direction = "INCOMING")
+    @Relationship(type = "created")
     public InstanceEdit created;
-    @Relationship(type = "modified", direction = "INCOMING")
+    @Relationship(type = "modified")
     public InstanceEdit modified;
 
     public DatabaseObject() {
@@ -55,38 +55,6 @@ public abstract class DatabaseObject {
 
     public InstanceEdit getModified() {
         return modified;
-    }
-
-    public String[] getFieldNames() {
-        return new String[]{"id", "dbId", "displayName", "schemaClass", "stId"};
-    }
-
-    public Map<String, Object> getFieldValues() {
-        Map<String, Object> res = new HashMap<>();
-        res.put("id", getId());
-        res.put("dbId", getDbId());
-        res.put("displayName", getDisplayName());
-        res.put("schemaClass", getSchemaClass());
-        res.put("stId", getStId());
-        return res;
-    }
-
-    public String[] getEdgeNames() {
-        return new String[]{"created", "modified"};
-    }
-
-    public Map<String, Object> getEdgeValues() {
-        Map<String, Object> res = new HashMap<>();
-        res.put("created", getCreated());
-        res.put("modified", getModified());
-        return res;
-    }
-
-    public Map<String, Class> getEdgeTypes() {
-        Map<String, Class> res = new HashMap<>();
-        res.put("created", InstanceEdit.class);
-        res.put("modified", InstanceEdit.class);
-        return res;
     }
 
 }

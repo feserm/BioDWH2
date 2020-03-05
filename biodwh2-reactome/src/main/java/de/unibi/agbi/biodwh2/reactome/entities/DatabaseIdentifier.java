@@ -1,6 +1,5 @@
 package de.unibi.agbi.biodwh2.reactome.entities;
 
-import de.unibi.agbi.biodwh2.reactome.entities.PhysicalEntity.PhysicalEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
 import java.util.HashSet;
@@ -14,12 +13,10 @@ public class DatabaseIdentifier extends DatabaseObject {
     public String identifier;
     public String url;
 
-    @Relationship(type = "crossReference", direction = Relationship.INCOMING)
+    @Relationship(type = "crossReference")
     public Set<DatabaseIdentifier> crossReference = new HashSet<>();
-    @Relationship(type = "referenceDatabase", direction = Relationship.INCOMING)
+    @Relationship(type = "referenceDatabase")
     public ReferenceDatabase referenceDatabase;
-    @Relationship(type = "crossReference", direction = Relationship.OUTGOING)
-    public Set<PhysicalEntity> crossReference2 = new HashSet<>();
 
     public DatabaseIdentifier() {
     }
@@ -42,9 +39,5 @@ public class DatabaseIdentifier extends DatabaseObject {
 
     public ReferenceDatabase getReferenceDatabase() {
         return referenceDatabase;
-    }
-
-    public Set<PhysicalEntity> getCrossReference2() {
-        return crossReference2;
     }
 }

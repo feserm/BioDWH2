@@ -8,16 +8,12 @@ import de.unibi.agbi.biodwh2.core.model.graph.Edge;
 import de.unibi.agbi.biodwh2.core.model.graph.Graph;
 import de.unibi.agbi.biodwh2.core.model.graph.Node;
 import de.unibi.agbi.biodwh2.reactome.ReactomeDataSource;
-import de.unibi.agbi.biodwh2.reactome.entities.CatalystActivity;
 import de.unibi.agbi.biodwh2.reactome.entities.DatabaseObject;
 import org.neo4j.ogm.session.Session;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Level;
 
 
@@ -34,15 +30,17 @@ public class ReactomeParser extends Parser {
         //ReactomeWriter r = new ReactomeWriter();
         for (Class entity : ReactomeModel.entitylist) {
             Session currentSession = Neo4jSessionFactory.getInstance().getNeo4jSession();
-            currentEntity = currentSession.loadAll(entity);
+            currentEntity = currentSession.loadAll(entity, 1);
 //            currentEntity = currentSession.query();
+            /*String query1 = "MATCH ()<-[r]-(:Pathway) RETURN DISTINCT type(r)";
+            String query2 = "MATCH (l)<-[:literatureReference]-(p:Pathway) WHERE p.stId IN ['R-HSA-9612973'] return l.pubMedIdentifier, p.stId";
+            String query3 = "MATCH (f:Figure)<--(p:Pathway) return p.dbId, f.dbId";
+            Iterable<Map<String, Object>> queryRes1 = currentSession.query(query1, Collections.EMPTY_MAP);
+            Iterable<Map<String, Object>> queryRes2 = currentSession.query(query2, Collections.EMPTY_MAP);
+            Iterable<Map<String, Object>> queryRes3 = currentSession.query(query3, Collections.EMPTY_MAP);*/
             currentSession.clear();
-            /*for (CatalystActivity e : (ArrayList<CatalystActivity>) currentEntity) {
-                if (!e.literatureReference.isEmpty()) {
-                    System.out.println(e.literatureReference);
-                }
-            }*/
             r.extendGraph(currentEntity, graph);
+            //TODO Pagination
         }
         System.out.print("finished.");
     }
@@ -76,7 +74,7 @@ public class ReactomeParser extends Parser {
                     e.printStackTrace();
                 }
                 if (!Arrays.stream(ReactomeModel.entitylist).anyMatch(
-                        f.getType()::equals)) { //TODO: erkennt nicht die subklassen? (problem entsteht schon beim einlesen)
+                        f.getType()::equals)) {
                     if (!(f.getType().equals(Set.class) && Arrays.stream(ReactomeModel.entitylist).anyMatch(
                             ((ParameterizedType) f.getGenericType()).getActualTypeArguments()[0]::equals))) {
                         if (reactomeNode != null) {

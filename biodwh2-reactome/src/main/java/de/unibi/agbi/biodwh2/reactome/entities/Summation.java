@@ -1,6 +1,5 @@
 package de.unibi.agbi.biodwh2.reactome.entities;
 
-import de.unibi.agbi.biodwh2.reactome.entities.Publication.Publication;
 import org.neo4j.ogm.annotation.Relationship;
 
 import java.util.HashSet;
@@ -12,7 +11,7 @@ import java.util.Set;
 public class Summation extends DatabaseObject {
     public String text;
 
-    @Relationship(type = "literatureReference", direction = Relationship.INCOMING)
+    @Relationship(type = "literatureReference")
     public Set<Publication> literatureReference = new HashSet<>();
 
     public Summation() {
