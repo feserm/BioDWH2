@@ -13,25 +13,25 @@ public abstract class ReactionLikeEvent extends Event {
     public boolean isChimeric;
     public String systematicName;
 
-    @Relationship(type = "catalystActivity")
+    @Relationship(type = "CatalystActivity")
     public Set<CatalystActivity> catalystActivity = new HashSet<>();
-    @Relationship(type = "catalystActivityReference")
+    @Relationship(type = "CatalystActivityReference")
     public CatalystActivityReference catalystActivityReference;
-    @Relationship(type = "entityFunctionalStatus")
+    @Relationship(type = "EntityFunctionalStatus")
     public Set<EntityFunctionalStatus> entityFunctionalStatus = new HashSet<>();
-    @Relationship(type = "entityOnOtherCell")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> entityOnOtherCell = new HashSet<>();
-    @Relationship(type = "input")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> input = new HashSet<>();
-    @Relationship(type = "normalReaction")
+    @Relationship(type = "ReactionLikeEvent")
     public ReactionLikeEvent normalReaction;
-    @Relationship(type = "output")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> output = new HashSet<>();
-    @Relationship(type = "regulatedBy")
+    @Relationship(type = "Regulation")
     public Set<Regulation> regulatedBy = new HashSet<>();
-    @Relationship(type = "regulationReference")
+    @Relationship(type = "RegulationReference")
     public Set<RegulationReference> regulationReference = new HashSet<>();
-    @Relationship(type = "requiredInputComponent")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> requiredInputComponent = new HashSet<>();
 
     public ReactionLikeEvent() {

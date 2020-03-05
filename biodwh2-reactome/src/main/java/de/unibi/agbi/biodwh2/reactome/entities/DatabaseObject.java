@@ -21,9 +21,9 @@ public abstract class DatabaseObject {
     public String schemaClass;
     public String stId;
 
-    @Relationship(type = "created")
+    @Relationship(type = "created", direction = Relationship.UNDIRECTED)
     public InstanceEdit created;
-    @Relationship(type = "modified")
+    @Relationship(type = "modified", direction = Relationship.UNDIRECTED)
     public InstanceEdit modified;
 
     public DatabaseObject() {

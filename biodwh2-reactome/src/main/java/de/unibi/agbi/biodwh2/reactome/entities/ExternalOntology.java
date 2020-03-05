@@ -16,9 +16,9 @@ public abstract class ExternalOntology extends DatabaseObject {
     public Set<String> synonym = new HashSet<>();
     public String url;
 
-    @Relationship(type = "instanceOf")
+    @Relationship(type = "ExternalOntology")
     public Set<ExternalOntology> instanceOf = new HashSet<>();
-    @Relationship(type = "referenceDatabase")
+    @Relationship(type = "ReferenceDatabase")
     public ReferenceDatabase referenceDatabase;
 
     public ExternalOntology() {

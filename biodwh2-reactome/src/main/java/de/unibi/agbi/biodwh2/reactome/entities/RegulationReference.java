@@ -9,9 +9,9 @@ import java.util.Set;
  * Created by manuel on 11.12.19.
  */
 public class RegulationReference extends ControlReference {
-    @Relationship(type = "regulatedBy")
+    @Relationship(type = "Regulation")
     public Regulation regulatedBy;
-    @Relationship(type = "regulationReference")
+    @Relationship(type = "ReactionLikeEvent")
     public Set<ReactionLikeEvent> regulationReference = new HashSet<>();
 
     public RegulationReference() {

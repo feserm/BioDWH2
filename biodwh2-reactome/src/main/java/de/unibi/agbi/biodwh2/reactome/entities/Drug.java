@@ -8,7 +8,7 @@ import org.neo4j.ogm.annotation.Relationship;
  * Created by manuel on 12.12.19.
  */
 public abstract class Drug extends PhysicalEntity {
-    @Relationship(type = "referenceEntity")
+    @Relationship(type = "ReferenceTherapeutic")
     public ReferenceTherapeutic referenceEntity;
 
     public Drug() {

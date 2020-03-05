@@ -9,11 +9,11 @@ import java.util.Set;
  * Created by manuel on 11.12.19.
  */
 public class EntityFunctionalStatus extends DatabaseObject {
-    @Relationship(type = "diseaseEntity")
+    @Relationship(type = "PhysicalEntity")
     public PhysicalEntity diseaseEntity;
-    @Relationship(type = "normalEntity")
+    @Relationship(type = "PhysicalEntity")
     public PhysicalEntity normalEntity;
-    @Relationship(type = "functionalStatus")
+    @Relationship(type = "FunctionalStatus")
     public Set<FunctionalStatus> functionalStatus = new HashSet<>();
 
     public EntityFunctionalStatus() {

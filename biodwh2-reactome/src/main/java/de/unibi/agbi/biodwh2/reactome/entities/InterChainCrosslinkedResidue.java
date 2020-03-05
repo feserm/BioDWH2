@@ -9,9 +9,9 @@ import java.util.Set;
  * Created by manuel on 11.12.19.
  */
 public class InterChainCrosslinkedResidue extends CrosslinkedResidue {
-    @Relationship(type = "equivalentTo")
+    @Relationship(type = "InterChainCrosslinkedResidue")
     public Set<InterChainCrosslinkedResidue> equivalentTo = new HashSet<>();
-    @Relationship(type = "secondReferenceSequence")
+    @Relationship(type = "ReferenceSequence")
     public Set<ReferenceSequence> secondReferenceSequence = new HashSet<>();
 
     public InterChainCrosslinkedResidue() {

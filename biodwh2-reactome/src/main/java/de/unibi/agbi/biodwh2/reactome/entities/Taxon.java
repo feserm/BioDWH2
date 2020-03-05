@@ -12,9 +12,9 @@ public class Taxon extends DatabaseObject {
     public Set<String> name = new HashSet<>();
     public String taxId;
 
-    @Relationship(type = "superTaxon")
+    @Relationship(type = "Taxon")
     public Taxon superTaxon;
-    @Relationship(type = "crossReference")
+    @Relationship(type = "DatabaseIdentifier")
     public Set<DatabaseIdentifier> crossReference = new HashSet<>();
 
 

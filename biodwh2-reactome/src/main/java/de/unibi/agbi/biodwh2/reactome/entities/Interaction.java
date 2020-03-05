@@ -17,7 +17,7 @@ public abstract class Interaction extends DatabaseObject {
     public double score;
     public String url;
 
-    @Relationship(type = "referenceDatabase")
+    @Relationship(type = "ReferenceDatabase")
     public ReferenceDatabase referenceDatabase;
 
 

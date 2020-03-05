@@ -11,9 +11,9 @@ import java.util.Set;
 public class SimpleEntity extends PhysicalEntity {
     public String referenceType;
 
-    @Relationship(type = "species")
+    @Relationship(type = "Species")
     public Set<Species> species = new HashSet<>();
-    @Relationship(type = "referenceEntity")
+    @Relationship(type = "ReferenceMolecule")
     public ReferenceMolecule referenceEntity;
 
     public SimpleEntity() {

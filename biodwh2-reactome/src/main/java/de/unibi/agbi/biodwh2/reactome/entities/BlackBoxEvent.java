@@ -8,7 +8,7 @@ import org.neo4j.ogm.annotation.Relationship;
  * Created by manuel on 12.12.19.
  */
 public class BlackBoxEvent extends ReactionLikeEvent {
-    @Relationship(type = "templateEvent")
+    @Relationship(type = "Event")
     public Event templateEvent;
 
     public BlackBoxEvent() {

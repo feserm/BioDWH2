@@ -15,9 +15,9 @@ public class Pathway extends Event {
     public String isCanonical;
 
 
-    @Relationship(type = "hasEvent")
+    @Relationship(type = "Event")
     public Set<Event> hasEvent = new HashSet<>();
-    @Relationship(type = "normalPathway")
+    @Relationship(type = "Pathway")
     public Pathway normalPathway;
 
     public Pathway() {

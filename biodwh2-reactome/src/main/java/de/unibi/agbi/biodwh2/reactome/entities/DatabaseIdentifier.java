@@ -13,9 +13,9 @@ public class DatabaseIdentifier extends DatabaseObject {
     public String identifier;
     public String url;
 
-    @Relationship(type = "crossReference")
+    @Relationship(type = "DatabaseIdentifier")
     public Set<DatabaseIdentifier> crossReference = new HashSet<>();
-    @Relationship(type = "referenceDatabase")
+    @Relationship(type = "ReferenceDatabase")
     public ReferenceDatabase referenceDatabase;
 
     public DatabaseIdentifier() {

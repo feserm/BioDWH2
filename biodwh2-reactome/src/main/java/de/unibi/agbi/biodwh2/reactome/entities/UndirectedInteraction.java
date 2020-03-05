@@ -9,7 +9,7 @@ import java.util.Set;
  * Created by manuel on 12.12.19.
  */
 public class UndirectedInteraction extends Interaction {
-    @Relationship(type = "interactor")
+    @Relationship(type = "ReferenceEntity")
     public Set<ReferenceEntity> interactor = new HashSet<>();
 
     public UndirectedInteraction() {

@@ -14,9 +14,9 @@ import java.util.Set;
 public class ReferenceGeneProduct extends ReferenceSequence {
     public Set<String> chain = new HashSet<>();
 
-    @Relationship(type = "referenceGene")
+    @Relationship(type = "ReferenceDNASequence")
     public Set<ReferenceDNASequence> referenceGene = new HashSet<>();
-    @Relationship(type = "referenceTranscript")
+    @Relationship(type = "ReferenceRNASequence")
     public Set<ReferenceRNASequence> referenceTranscript = new HashSet<>();
 
     public ReferenceGeneProduct() {

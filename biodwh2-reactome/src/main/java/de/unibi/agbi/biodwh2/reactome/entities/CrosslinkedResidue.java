@@ -10,7 +10,7 @@ import org.neo4j.ogm.annotation.Relationship;
 public abstract class CrosslinkedResidue extends TranslationalModification {
     public int secondCoordinate;
 
-    @Relationship(type = "modification")
+    @Relationship(type = "ModificationType")
     public ModificationType modification;
 
     public CrosslinkedResidue() {

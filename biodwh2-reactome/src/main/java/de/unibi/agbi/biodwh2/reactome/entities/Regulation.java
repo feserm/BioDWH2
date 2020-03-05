@@ -11,31 +11,31 @@ import java.util.Set;
 public abstract class Regulation extends DatabaseObject {
     public String releaseDate;
 
-    @Relationship(type = "activeUnit")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> acitveUnit = new HashSet<>();
-    @Relationship(type = "activity")
+    @Relationship(type = "GO_MolecularFunction")
     public GO_MolecularFunction activity;
-    @Relationship(type = "authored")
+    @Relationship(type = "InstanceEdit")
     public InstanceEdit authored;
-    @Relationship(type = "edited")
+    @Relationship(type = "InstanceEdit")
     public Set<InstanceEdit> edited = new HashSet<>();
-    @Relationship(type = "goBiologicalProcess")
+    @Relationship(type = "GO_BiologicalProcess")
     public GO_BiologicalProcess goBiologicalProcess;
-    @Relationship(type = "inferredFrom")
+    @Relationship(type = "Regulation")
     public Set<Regulation> inferredFrom = new HashSet<>();
-    @Relationship(type = "inferredTo")
+    @Relationship(type = "Regulation")
     public Set<Regulation> inferredTo = new HashSet<>();
-    @Relationship(type = "literatureReference")
+    @Relationship(type = "Publication")
     public Set<Publication> literatureReference = new HashSet<>();
-    @Relationship(type = "regulatedEntity")
+    @Relationship(type = "ReactionLikeEvent")
     public ReactionLikeEvent regulatedEntity;
-    @Relationship(type = "regulator")
+    @Relationship(type = "PhysicalEntity")
     public PhysicalEntity regulator;
-    @Relationship(type = "reviewed")
+    @Relationship(type = "InstanceEdit")
     public Set<InstanceEdit> reviewed = new HashSet<>();
-    @Relationship(type = "revised")
+    @Relationship(type = "InstanceEdit")
     public Set<InstanceEdit> revised = new HashSet<>();
-    @Relationship(type = "summation")
+    @Relationship(type = "Summation")
     public Set<Summation> summation = new HashSet<>();
 
     public Regulation() {

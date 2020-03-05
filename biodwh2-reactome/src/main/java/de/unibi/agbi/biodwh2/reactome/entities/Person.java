@@ -15,11 +15,11 @@ public class Person extends DatabaseObject {
     public String project;
     public String surname;
 
-    @Relationship(type = "affiliation")
+    @Relationship(type = "Affiliation")
     public Set<Affiliation> affiliation = new HashSet<>();
-    @Relationship(type = "crossReference")
+    @Relationship(type = "DatabaseIdentifier")
     public Set<DatabaseIdentifier> crossReference = new HashSet<>();
-    @Relationship(type = "publications")
+    @Relationship(type = "Publication")
     public Set<Publication> publications = new HashSet<>();
 
 

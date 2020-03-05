@@ -11,7 +11,7 @@ public abstract class TranslationalModification extends AbstractModifiedResidue 
     public int coordinate;
     public String label;
 
-    @Relationship(type = "psiMod")
+    @Relationship(type = "PsiMod")
     public PsiMod psiMod;
 
     public TranslationalModification() {

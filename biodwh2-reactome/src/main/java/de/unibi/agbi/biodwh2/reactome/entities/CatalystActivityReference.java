@@ -9,7 +9,7 @@ import org.neo4j.ogm.annotation.Relationship;
  * Created by manuel on 11.12.19.
  */
 public class CatalystActivityReference extends ControlReference {
-    @Relationship(type = "catalystActivity")
+    @Relationship(type = "CatalystActivity")
     public CatalystActivity catalystActivity;
     public CatalystActivityReference() {
 

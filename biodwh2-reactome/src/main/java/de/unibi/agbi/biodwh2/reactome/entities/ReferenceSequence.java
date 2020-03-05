@@ -20,7 +20,7 @@ public abstract class ReferenceSequence extends ReferenceEntity {
     public Set<String> secondaryIdentifier = new HashSet<>();
     public int sequenceLength;
 
-    @Relationship(type = "species")
+    @Relationship(type = "Species")
     public Species species;
 
     public ReferenceSequence() {

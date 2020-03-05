@@ -12,7 +12,7 @@ public class InstanceEdit extends DatabaseObject {
     public String dateTime;
     public String note;
 
-    @Relationship(type = "author")
+    @Relationship(type = "Person")
     public Set<Person> author = new HashSet<>();
 
     public InstanceEdit() {

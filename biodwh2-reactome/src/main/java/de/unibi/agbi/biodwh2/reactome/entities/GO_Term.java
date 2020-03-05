@@ -14,7 +14,7 @@ public abstract class GO_Term extends DatabaseObject {
     public String name;
     public String url;
 
-    @Relationship(type = "referenceDatabase")
+    @Relationship(type = "ReferenceDatabase")
     public ReferenceDatabase referenceDatabase;
 
     public GO_Term() {

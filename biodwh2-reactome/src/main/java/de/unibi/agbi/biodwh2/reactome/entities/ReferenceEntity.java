@@ -15,11 +15,11 @@ public abstract class ReferenceEntity extends DatabaseObject {
     public Set<String> otherIdentifier = new HashSet<>();
     public String url;
 
-    @Relationship(type = "crossReference")
+    @Relationship(type = "DatabaseIdentifier")
     public Set<DatabaseIdentifier> crossReference = new HashSet<>();
-    @Relationship(type = "physicalEntity")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> physicalEntity = new HashSet<>();
-    @Relationship(type = "referenceDatabase")
+    @Relationship(type = "ReferenceDatabase")
     public ReferenceDatabase referenceDatabase;
 
     public ReferenceEntity() {

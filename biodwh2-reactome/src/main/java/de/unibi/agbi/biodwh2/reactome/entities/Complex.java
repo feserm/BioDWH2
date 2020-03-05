@@ -12,15 +12,15 @@ public class Complex extends PhysicalEntity {
     public boolean isChimeric;
     public boolean stoichiometriyKnown;
 
-    @Relationship(type = "entityOnOtherCell")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> entityOnOtherCell = new HashSet<>();
-    @Relationship(type = "hasComponent")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> hasComponent = new HashSet<>();
-    @Relationship(type = "includedLocation")
+    @Relationship(type = "Compartment")
     public Set<Compartment> includedLocation = new HashSet<>();
-    @Relationship(type = "relatedSpecies")
+    @Relationship(type = "Species")
     public Set<Species> relatedSpecies = new HashSet<>();
-    @Relationship(type = "species")
+    @Relationship(type = "Species")
     public Set<Species> species = new HashSet<>();
 
     public Complex() {

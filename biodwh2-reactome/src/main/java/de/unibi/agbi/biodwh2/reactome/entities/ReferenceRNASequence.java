@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by manuel on 12.12.19.
  */
 public class ReferenceRNASequence extends ReferenceSequence {
-    @Relationship(type = "referenceGene")
+    @Relationship(type = "ReferenceDNASequence")
     public Set<ReferenceDNASequence> referenceGene = new HashSet<>();
 
     public ReferenceRNASequence() {

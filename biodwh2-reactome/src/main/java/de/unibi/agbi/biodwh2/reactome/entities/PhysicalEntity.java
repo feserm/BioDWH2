@@ -14,49 +14,49 @@ public abstract class PhysicalEntity extends DatabaseObject {
     public Set<String> name = new HashSet<>();
     public String systematicName;
 
-    @Relationship(type = "authored")
+    @Relationship(type = "InstanceEdit")
     public InstanceEdit authored;
-    @Relationship(type = "catalystActivity")
+    @Relationship(type = "CatalystActivity")
     public Set<CatalystActivity> catalystActivities = new HashSet<>();
-    @Relationship(type = "compartment")
+    @Relationship(type = "Compartment")
     public Set<Compartment> compartment = new HashSet<>();
-    @Relationship(type = "componentOf")
+    @Relationship(type = "Complex")
     public Set<Complex> componentOf = new HashSet<>();
-    @Relationship(type = "consumedByEvent")
+    @Relationship(type = "ReactionLikeEvent")
     public Set<ReactionLikeEvent> consumedByEvent = new HashSet<>();
-    @Relationship(type = "crossReference")
+    @Relationship(type = "DatabaseIdentifier")
     public Set<DatabaseIdentifier> crossReference = new HashSet<>();
-    @Relationship(type = "disease")
+    @Relationship(type = "Disease")
     public Set<Disease> disease = new HashSet<>();
-    @Relationship(type = "edited")
+    @Relationship(type = "InstanceEdit")
     public Set<InstanceEdit> edited = new HashSet<>();
-    @Relationship(type = "figure")
+    @Relationship(type = "Figure")
     public Set<Figure> figure = new HashSet<>();
-    @Relationship(type = "goCellularComponent")
+    @Relationship(type = "GO_CellularComponent")
     public GO_CellularComponent goCellularComponent;
-    @Relationship(type = "inferredFrom")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> inferredFrom = new HashSet<>();
-    @Relationship(type = "inferredTo")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> inferredTo = new HashSet<>();
-    @Relationship(type = "isRequired")
+    @Relationship(type = "Requirement")
     public Set<Requirement> isRequired = new HashSet<>();
-    @Relationship(type = "literatureReference")
+    @Relationship(type = "Publication")
     public Set<Publication> literatureReference = new HashSet<>();
-    @Relationship(type = "memberOf")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> memberOf = new HashSet<>();
-    @Relationship(type = "negativelyRegulates")
+    @Relationship(type = "NegativeRegulation")
     public Set<NegativeRegulation> negativelyRegulates = new HashSet<>();
-    @Relationship(type = "posivitelyRegulates")
+    @Relationship(type = "PositiveRegulation")
     public Set<PositiveRegulation> positivelyRegulates = new HashSet<>();
-    @Relationship(type = "producedByEvent")
+    @Relationship(type = "ReactionLikeEvent")
     public Set<ReactionLikeEvent> producedByEvent = new HashSet<>();
-    @Relationship(type = "repeatedUnitOf")
+    @Relationship(type = "Polymer")
     public Set<Polymer> repeatedUnitOf = new HashSet<>();
-    @Relationship(type = "reviewed")
+    @Relationship(type = "InstanceEdit")
     public Set<InstanceEdit> reviewed = new HashSet<>();
-    @Relationship(type = "revised")
+    @Relationship(type = "InstanceEdit")
     public Set<InstanceEdit> revised = new HashSet<>();
-    @Relationship(type = "summation")
+    @Relationship(type = "Summation")
     public Set<Summation> summation = new HashSet<>();
 
     public String getDefinition() {

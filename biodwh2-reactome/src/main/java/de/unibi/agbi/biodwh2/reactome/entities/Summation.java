@@ -11,7 +11,7 @@ import java.util.Set;
 public class Summation extends DatabaseObject {
     public String text;
 
-    @Relationship(type = "literatureReference")
+    @Relationship(type = "Publication")
     public Set<Publication> literatureReference = new HashSet<>();
 
     public Summation() {

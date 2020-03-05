@@ -8,10 +8,13 @@ import de.unibi.agbi.biodwh2.core.model.graph.Edge;
 import de.unibi.agbi.biodwh2.core.model.graph.Graph;
 import de.unibi.agbi.biodwh2.core.model.graph.Node;
 import de.unibi.agbi.biodwh2.reactome.ReactomeDataSource;
+import de.unibi.agbi.biodwh2.reactome.entities.Book;
 import de.unibi.agbi.biodwh2.reactome.entities.DatabaseObject;
+import org.neo4j.ogm.cypher.query.Pagination;
 import org.neo4j.ogm.session.Session;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.util.*;
 import java.util.logging.Level;
@@ -29,17 +32,16 @@ public class ReactomeParser extends Parser {
         Collection currentEntity;
         //ReactomeWriter r = new ReactomeWriter();
         for (Class entity : ReactomeModel.entitylist) {
+            System.out.println("Currently parsing: " + entity);
             Session currentSession = Neo4jSessionFactory.getInstance().getNeo4jSession();
-            currentEntity = currentSession.loadAll(entity, 1);
-//            currentEntity = currentSession.query();
-            /*String query1 = "MATCH ()<-[r]-(:Pathway) RETURN DISTINCT type(r)";
-            String query2 = "MATCH (l)<-[:literatureReference]-(p:Pathway) WHERE p.stId IN ['R-HSA-9612973'] return l.pubMedIdentifier, p.stId";
-            String query3 = "MATCH (f:Figure)<--(p:Pathway) return p.dbId, f.dbId";
-            Iterable<Map<String, Object>> queryRes1 = currentSession.query(query1, Collections.EMPTY_MAP);
-            Iterable<Map<String, Object>> queryRes2 = currentSession.query(query2, Collections.EMPTY_MAP);
-            Iterable<Map<String, Object>> queryRes3 = currentSession.query(query3, Collections.EMPTY_MAP);*/
-            currentSession.clear();
-            r.extendGraph(currentEntity, graph);
+            int pageNumber = 0;
+            int itemsPerPage = 1;
+            if (!Modifier.isAbstract(entity.getModifiers())) {
+                currentEntity = currentSession.loadAll(entity, new Pagination(pageNumber, itemsPerPage), 1);
+                currentSession.clear();
+
+                r.extendGraph(currentEntity, graph);
+            }
             //TODO Pagination
         }
         System.out.print("finished.");
@@ -73,8 +75,7 @@ public class ReactomeParser extends Parser {
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
-                if (!Arrays.stream(ReactomeModel.entitylist).anyMatch(
-                        f.getType()::equals)) {
+                if (!Arrays.stream(ReactomeModel.entitylist).anyMatch(f.getType()::equals)) {
                     if (!(f.getType().equals(Set.class) && Arrays.stream(ReactomeModel.entitylist).anyMatch(
                             ((ParameterizedType) f.getGenericType()).getActualTypeArguments()[0]::equals))) {
                         if (reactomeNode != null) {

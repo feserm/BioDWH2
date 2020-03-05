@@ -13,9 +13,9 @@ public class EntityWithAccessionedSequence extends GenomeEncodedEntity {
     public String referenceType;
     public int startCoordinate;
 
-    @Relationship(type = "hasModifiedResidue")
+    @Relationship(type = "AbstractModifiedResidue")
     public Set<AbstractModifiedResidue> hasModifiedResidue = new HashSet<>();
-    @Relationship(type = "referenceEntity")
+    @Relationship(type = "ReferenceSequence")
     public ReferenceSequence referenceEntity;
 
     public EntityWithAccessionedSequence() {

@@ -8,7 +8,7 @@ import org.neo4j.ogm.annotation.Relationship;
  * Created by manuel on 11.12.19.
  */
 public class GroupModifiedResidue extends TranslationalModification {
-    @Relationship(type = "modification")
+    @Relationship(type = "ModificationType")
     public ModificationType modification;
 
     public GroupModifiedResidue() {

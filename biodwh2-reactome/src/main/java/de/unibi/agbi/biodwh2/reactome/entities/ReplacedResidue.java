@@ -15,7 +15,7 @@ import java.util.Set;
 public class ReplacedResidue extends AbstractModifiedResidue {
     public int coordinate;
 
-    @Relationship(type = "psiMod")
+    @Relationship(type = "PsiMod")
     public Set<PsiMod> psiMod = new HashSet<>();
 
     public ReplacedResidue() {

@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by manuel on 12.12.19.
  */
 public class CandidateSet extends EntitySet {
-    @Relationship(type = "hasCandidate")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> hasCandidate = new HashSet<>();
 
     public CandidateSet() {

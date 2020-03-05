@@ -9,15 +9,15 @@ import java.util.Set;
  * Created by manuel on 11.12.19.
  */
 public class CatalystActivity extends DatabaseObject {
-    @Relationship(type = "activeUnit")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> activeUnit = new HashSet<>();
-    @Relationship(type = "activity")
+    @Relationship(type = "GO_MolecularFunction")
     public GO_MolecularFunction activity;
-    @Relationship(type = "catalyzedEvent")
+    @Relationship(type = "ReactionLikeEvent")
     public Set<ReactionLikeEvent> catalyzedEvent = new HashSet<>();
-    @Relationship(type = "literatureReference")
+    @Relationship(type = "Publication")
     public Set<Publication> literatureReference = new HashSet<>();
-    @Relationship(type = "physicalEntity")
+    @Relationship(type = "PhysicalEntity")
     public PhysicalEntity physicalEntity;
 
     public CatalystActivity() {

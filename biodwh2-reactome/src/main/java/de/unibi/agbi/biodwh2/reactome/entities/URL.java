@@ -5,7 +5,7 @@ import org.neo4j.ogm.annotation.NodeEntity;
 /**
  * Created by manuel on 12.12.19.
  */
-@NodeEntity(label = "Publication")
+@NodeEntity(label = "URL")
 public class URL extends Publication {
     public String uniformResourceLoader;
 

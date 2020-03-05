@@ -14,7 +14,7 @@ import java.util.Set;
 public abstract class Publication extends DatabaseObject {
     public String title;
 
-    @Relationship(type = "author")
+    @Relationship(type = "Person")
     public Set<Person> author = new HashSet<>();
 
     public Publication() {

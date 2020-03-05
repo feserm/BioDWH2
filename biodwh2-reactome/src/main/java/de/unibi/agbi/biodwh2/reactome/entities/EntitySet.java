@@ -14,11 +14,11 @@ import java.util.Set;
 public abstract class EntitySet extends PhysicalEntity implements ModificationType {
     public boolean isOrdered;
 
-    @Relationship(type = "hasMember")
+    @Relationship(type = "PhysicalEntity")
     public Set<PhysicalEntity> hasMember = new HashSet<>();
-    @Relationship(type = "relatedSpecies")
+    @Relationship(type = "Species")
     public Set<Species> relatedSpecies = new HashSet<>();
-    @Relationship(type = "species")
+    @Relationship(type = "Species")
     public Set<Species> species = new HashSet<>();
 
     public EntitySet() {

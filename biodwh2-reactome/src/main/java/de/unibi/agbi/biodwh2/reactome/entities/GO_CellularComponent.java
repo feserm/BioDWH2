@@ -9,13 +9,13 @@ import java.util.Set;
  * Created by manuel on 12.12.19.
  */
 public class GO_CellularComponent extends GO_Term {
-    @Relationship(type = "componentOf")
+    @Relationship(type = "GO_CellularComponent")
     public Set<GO_CellularComponent> componentOf = new HashSet<>();
-    @Relationship(type = "hasPart")
+    @Relationship(type = "GO_CellularComponent")
     public Set<GO_CellularComponent> hasPart = new HashSet<>();
-    @Relationship(type = "instanceOf")
+    @Relationship(type = "GO_CellularComponent")
     public Set<GO_CellularComponent> instanceOf = new HashSet<>();
-    @Relationship(type = "surroundedBy")
+    @Relationship(type = "GO_CellularComponent")
     public Set<GO_CellularComponent> surroundedBy = new HashSet<>();
 
     public GO_CellularComponent() {

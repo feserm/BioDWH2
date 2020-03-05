@@ -16,43 +16,43 @@ public abstract class Event extends DatabaseObject {
     public String releaseDate;
     public String releaseStatus;
 
-    @Relationship(type = "authored")
+    @Relationship(type = "InstanceEdit")
     public Set<InstanceEdit> authored = new HashSet<>();
-    @Relationship(type = "compartment")
+    @Relationship(type = "Compartment")
     public Set<Compartment> compartment = new HashSet<>();
-    @Relationship(type = "crossReference")
+    @Relationship(type = "DatabaseIdentifier")
     public Set<DatabaseIdentifier> crossReference = new HashSet<>();
-    @Relationship(type = "disease")
+    @Relationship(type = "Disease")
     public Set<Disease> disease = new HashSet<>();
-    @Relationship(type = "edited")
+    @Relationship(type = "InstanceEdit")
     public Set<InstanceEdit> edited = new HashSet<>();
-    @Relationship(type = "eventOf")
+    @Relationship(type = "Pathway")
     public Set<Pathway> eventOf = new HashSet<>();
-    @Relationship(type = "evidenceType")
+    @Relationship(type = "EvidenceType")
     public EvidenceType evidenceType;
-    @Relationship(type = "figure")
+    @Relationship(type = "Figure")
     public Set<Figure> figure = new HashSet<>();
-    @Relationship(type = "followingEvent")
+    @Relationship(type = "Event")
     public Set<Event> followingEvent = new HashSet<>();
-    @Relationship(type = "goBiologicalProcess")
+    @Relationship(type = "Go_BiologicalProcess")
     public GO_BiologicalProcess goBiologicalProcess;
-    @Relationship(type = "inferredFrom")
+    @Relationship(type = "Event")
     public Set<Event> inferredFrom = new HashSet<>();
-    @Relationship(type = "literatureReference")
+    @Relationship(type = "Publication")
     public Set<Publication> literatureReference = new HashSet<>();
-    @Relationship(type = "orthologousEvent")
+    @Relationship(type = "Event")
     public Set<Event> orthologousEvent = new HashSet<>();
-    @Relationship(type = "precedingEvent")
+    @Relationship(type = "Event")
     public Set<Event> precedingEvent = new HashSet<>();
-    @Relationship(type = "relatedSpecies")
+    @Relationship(type = "Species")
     public Set<Species> relatedSpecies = new HashSet<>();
-    @Relationship(type = "reviewed")
+    @Relationship(type = "InstanceEdit")
     public InstanceEdit reviewed;
-    @Relationship(type = "revised")
+    @Relationship(type = "InstanceEdit")
     public InstanceEdit revised;
-    @Relationship(type = "species")
+    @Relationship(type = "Species")
     public Set<Species> species = new HashSet<>();
-    @Relationship(type = "summation")
+    @Relationship(type = "Summation")
     public Set<Summation> summation = new HashSet<>();
 
     public Event() {

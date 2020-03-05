@@ -15,7 +15,7 @@ public class Book extends Publication {
     public String pages;
     public int year;
 
-    @Relationship(type = "publisher")
+    @Relationship(type = "Affiliation")
     public Affiliation publisher;
 
     public Book() {
