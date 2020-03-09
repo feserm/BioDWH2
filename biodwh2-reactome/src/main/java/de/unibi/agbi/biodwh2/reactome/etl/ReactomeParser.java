@@ -31,18 +31,26 @@ public class ReactomeParser extends Parser {
         ReactomeParser r = new ReactomeParser();
         Collection currentEntity;
         //ReactomeWriter r = new ReactomeWriter();
-        for (Class entity : ReactomeModel.entitylist) {
-            System.out.println("Currently parsing: " + entity);
-            Session currentSession = Neo4jSessionFactory.getInstance().getNeo4jSession();
-            int pageNumber = 0;
-            int itemsPerPage = 1;
-            if (!Modifier.isAbstract(entity.getModifiers())) {
-                currentEntity = currentSession.loadAll(entity, new Pagination(pageNumber, itemsPerPage), 1);
-                currentSession.clear();
+        //TODO Pagination
 
-                r.extendGraph(currentEntity, graph);
+        for (Class entity : ReactomeModel.entitylist) {
+
+            Session currentSession = Neo4jSessionFactory.getInstance().getNeo4jSession();
+
+            int itemsPerPage = 100;
+            long count = currentSession.countEntitiesOfType(entity);
+            long pages = count / itemsPerPage + 1;
+
+            System.out.println("Currently parsing: " + entity + " (" + pages + " pages)");
+
+            for (int pageNumber = 0; pageNumber < pages; pageNumber++) {
+                if (!(Modifier.isAbstract(entity.getModifiers()) || Modifier.isInterface(entity.getModifiers()))) {
+                    currentEntity = currentSession.loadAll(entity, new Pagination(pageNumber, itemsPerPage), 1);
+                    currentSession.clear();
+
+                    r.extendGraph(currentEntity, graph);
+                }
             }
-            //TODO Pagination
         }
         System.out.print("finished.");
     }

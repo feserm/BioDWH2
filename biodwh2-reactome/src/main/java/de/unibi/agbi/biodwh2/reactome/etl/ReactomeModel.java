@@ -60,6 +60,8 @@ import de.unibi.agbi.biodwh2.reactome.entities.Regulation;
 import de.unibi.agbi.biodwh2.reactome.entities.Species;
 import de.unibi.agbi.biodwh2.reactome.entities.Taxon;
 
+import java.nio.file.Path;
+
 /**
  * Created by manuel on 23.01.20.
  */
@@ -73,8 +75,8 @@ public class ReactomeModel {
             SequenceOntology.class, Compartment.class, GO_CellularComponent.class, GO_BiologicalProcess.class,
             GO_MolecularFunction.class, UndirectedInteraction.class, ChemicalDrug.class, ProteinDrug.class,
             CandidateSet.class, DefinedSet.class, EntityWithAccessionedSequence.class, GenomeEncodedEntity.class,
-            Complex.class, OtherEntity.class, Polymer.class, SimpleEntity.class,LiteratureReference.class,
-            URL.class, ReferenceGeneProduct.class, ReferenceIsoform.class, ReferenceDNASequence.class, Book.class,
+            Complex.class, OtherEntity.class, Polymer.class, SimpleEntity.class, LiteratureReference.class, URL.class,
+            ReferenceGeneProduct.class, ReferenceIsoform.class, ReferenceDNASequence.class, Book.class,
             ReferenceRNASequence.class, ReferenceGroup.class, ReferenceMolecule.class, ReferenceTherapeutic.class,
             NegativeGeneExpressionRegulation.class, NegativeRegulation.class, PositiveGeneExpressionRegulation.class,
             PositiveRegulation.class, Requirement.class, Species.class, Taxon.class, Affiliation.class,
@@ -84,6 +86,6 @@ public class ReactomeModel {
             TranslationalModification.class, AbstractModifiedResidue.class, ControlReference.class,
             ReactionLikeEvent.class, Event.class, ExternalOntology.class, GO_Term.class, Interaction.class, Drug.class,
             EntitySet.class, PhysicalEntity.class, Publication.class, ReferenceSequence.class, ReferenceEntity.class,
-            Regulation.class, DatabaseObject.class
+            Regulation.class, DatabaseObject.class, EvidenceType.class, ModificationType.class, Pathway.class
     };
 }
